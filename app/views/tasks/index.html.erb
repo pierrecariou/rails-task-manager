@@ -1,0 +1,14 @@
+<h1>My tasks</h1>
+<p><% @tasks.each do |task| %></p>
+<ul>
+  <li>
+    <% if task.completed == false %>
+      <p><img src="https://img.icons8.com/metro/26/000000/unchecked-checkbox.png"> <%= link_to "#{task.title}", "tasks/#{task.id}" %> <%= link_to "delete", "tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure?" }  %></p>
+    <% elsif task.completed == true %>
+      <p><img src="https://img.icons8.com/metro/26/000000/checked-checkbox.png"> <%= link_to "#{task.title}", "tasks/#{task.id}"  %> <%= link_to "delete", "tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure?" } %></p>
+    <% end %>
+  </li>
+</ul>
+<p><% end %></p>
+
+<%= link_to "create task", "tasks/new" %>
